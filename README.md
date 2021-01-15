@@ -1,5 +1,5 @@
 # openshiftv4-windows-containers
-Personal repo documenting how to deploy a Windows worker node on OpenShift 4.6.9
+Documenting how to deploy a Windows worker node on OpenShift 4.6.9
 
 #### Windows Machine Set
 
@@ -8,6 +8,8 @@ Personal repo documenting how to deploy a Windows worker node on OpenShift 4.6.9
 ```
 oc get -o jsonpath='{.status.infrastructureName}{"\n"}' infrastructure cluster
 ```
+
+2) Configure the Windows machineset with your cluster **A)** infrastructure ID, **B)** Region, **C)** Availability Zone
 
 ```
 apiVersion: machine.openshift.io/v1beta1
@@ -73,7 +75,8 @@ spec:
             namespace: openshift-machine-api
 ```
 
-RuntimeClass
+#### RuntimeClass
+
 ```
 apiVersion: node.k8s.io/v1beta1
 kind: RuntimeClass
@@ -90,11 +93,12 @@ scheduling:
     key: os
     operator: Equal
     value: "Windows"
-    ```
+```
     
-    Windows Service
-    ```
-    apiVersion: v1
+#### Windows Service
+
+```
+apiVersion: v1
 kind: Service
 metadata:
   name: win-webserver
@@ -108,11 +112,12 @@ spec:
   selector:
     app: win-webserver
   type: LoadBalancer
-  ```
+```
   
-  Windows HTTP Server deployment
-  ```
-  apiVersion: apps/v1
+#### Windows HTTP Server deployment
+
+```
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -147,4 +152,4 @@ spec:
             runAsUserName: "ContainerAdministrator"
       nodeSelector:
         beta.kubernetes.io/os: windows
-        ```
+```
