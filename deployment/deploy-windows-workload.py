@@ -32,7 +32,7 @@ if check_project == 0:
     print("")
     print("")
     # An abstract way to expose an application running on a set of Pods as a network service.
-    print("Creating a new service")
+    print("Creating a new service named win-webserver")
     print("executing: oc apply -f 002-windows-service.yaml")
     for I in range(57):
         sys.stdout.write('.')
@@ -42,7 +42,7 @@ if check_project == 0:
     print("")
     # An OpenShift Container Platform route exposes a service at a host name, like www.example.com, 
     # so that external clients can reach it by name.
-    print("Creating route to expose service")
+    print("Exposing the win-webserver service via a route")
     print("executing: oc apply -f 003-windows-route.yaml")
     for I in range(57):
         sys.stdout.write('.')
@@ -59,7 +59,15 @@ if check_project == 0:
         time.sleep(.1)
     print("")
     print("")
+    # Deploying browser to connect to Windows application running on OpenShift
+    print("Connecting to windows application running on OpenShift")
+    for I in range(57):
+        sys.stdout.write('.')
+        sys.stdout.flush() 
+        time.sleep(.1)
     # Launch firefox to connect to running Windows application
     subprocess.call(['/usr/bin/firefox', 'winhttp.apps.ocp4.freebsd.tv'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    print("")
+    print("")
 else:
     exit(1)
