@@ -10,7 +10,8 @@ oc get -o jsonpath='{.status.infrastructureName}{"\n"}' infrastructure cluster
 ```
 
 2) Search for the latest Windows Server 2019 w/ container support AMI:
-```**Windows_Server-2019-English-Full-ContainersLatest-**``` 
+
+```Windows_Server-2019-English-Full-ContainersLatest-``` 
 ![ami-search](/images/ami-search.png)
 
 3) Configure the Windows machineset yaml for your cluster: 
