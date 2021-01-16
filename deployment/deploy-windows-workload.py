@@ -16,7 +16,7 @@ if check_project == 0:
     # A MachineSet is an immutable abstraction over Machines.
     print("Deploying windows machineset")
     print("executing: oc apply -f 000-windows-server-machineset.yaml")
-    for I in range(30):
+    for I in range(57):
         sys.stdout.write('.')
         sys.stdout.flush() 
         time.sleep(.1)
@@ -25,29 +25,41 @@ if check_project == 0:
     # Namespaces are a way to divide cluster resources between multiple tenants (via resource quota).
     print("Creating windows-workload namespace")
     print("executing: oc apply -f 001-windows-workload-namespace.yaml")
-    for I in range(30):
+    for I in range(57):
         sys.stdout.write('.')
         sys.stdout.flush() 
         time.sleep(.1)
     print("")
     print("")
     # An abstract way to expose an application running on a set of Pods as a network service.
-    print("Creating a new service for the windows application on port 80")
+    print("Creating a new service")
     print("executing: oc apply -f 002-windows-service.yaml")
-    for I in range(30):
+    for I in range(57):
         sys.stdout.write('.')
         sys.stdout.flush() 
         time.sleep(.1)
     print("")
     print("")
-    # An abstract way to expose an application running on a set of Pods as a network service.
-    print("Creating a new service for the windows application on port 80")
-    print("executing: oc apply -f 002-windows-service.yaml")
-    for I in range(30):
+    # An OpenShift Container Platform route exposes a service at a host name, like www.example.com, 
+    # so that external clients can reach it by name.
+    print("Creating route to expose service")
+    print("executing: oc apply -f 003-windows-route.yaml")
+    for I in range(57):
         sys.stdout.write('.')
         sys.stdout.flush() 
         time.sleep(.1)
     print("")
     print("")
+    # A Deployment provides declarative updates for Pods and ReplicaSets.
+    print("Deploying windows application")
+    print("executing: oc apply -f 004-windows-webserver-deployment.yaml")
+    for I in range(57):
+        sys.stdout.write('.')
+        sys.stdout.flush() 
+        time.sleep(.1)
+    print("")
+    print("")
+    # Launch firefox to connect to running Windows application
+    subprocess.call(['/usr/bin/firefox', 'winhttp.apps.ocp4.freebsd.tv'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 else:
     exit(1)
