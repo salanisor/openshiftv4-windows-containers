@@ -13,9 +13,9 @@ oc get -o jsonpath='{.status.infrastructureName}{"\n"}' infrastructure cluster
 ![ami-search](/images/ami-search.png)
 
 3) Configure the Windows machineset with your cluster 
-- **A)** infrastructure ID
-- **B)** Region
-- **C)** Availability Zone
+- A) **Infrastructure ID**
+- B) **Region**
+- C) **Availability Zone**
 
 ```
 apiVersion: machine.openshift.io/v1beta1
