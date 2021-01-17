@@ -1,5 +1,10 @@
-# openshiftv4-windows-containers
 How to deploy a Windows worker node on OpenShift 4.6.9
+
+#### Prerequisites
+
+1) OpenShift Cluster >=4.6.8 built w/ with Hybrid [OVNKubernetes](https://docs.openshift.com/container-platform/4.6/installing/installing_aws/installing-aws-network-customizations.html#configuring-hybrid-ovnkubernetes_installing-aws-network-customizations) network plugin. 
+
+2) Install the [Windows_Machine_Config_Operator](https://docs.openshift.com/container-platform/4.6/windows_containers/enabling-windows-container-workloads.html#installing-wmco-using-web-console_enabling-windows-container-workloads)
 
 #### Windows Machine Set
 
@@ -122,6 +127,29 @@ spec:
   type: LoadBalancer
 ```
   
+#### Route exposing the service
+```
+apiVersion: v1
+items:
+- apiVersion: route.openshift.io/v1
+  kind: Route
+  metadata:
+    labels:
+      app: win-webserver
+    name: windows-route
+    namespace: windows-workload
+  spec:
+    host: winhttp.apps.ocp4.freebsd.tv
+    port:
+      targetPort: 80
+    to:
+      kind: Service
+      name: win-webserver
+      weight: 100
+    wildcardPolicy: None
+  status: {}
+```
+
 #### Windows HTTP Server deployment
 
 ```
