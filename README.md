@@ -16,7 +16,9 @@ oc get -o jsonpath='{.status.infrastructureName}{"\n"}' infrastructure cluster
 
 2) Search for the latest Windows Server 2019 w/ container support AMI to apply to your Windows Server 2019 [machineset](https://github.com/salanisor/openshiftv4-windows-containers/blob/793b54fe278a4e38b8615bad70f24105b9e7609a/deployment/000-windows-server-machineset.yaml#L29) yaml file.
 
-```Windows_Server-2019-English-Full-ContainersLatest-``` 
+```
+Windows_Server-2019-English-Full-ContainersLatest-
+```
 ![ami-search](/images/ami-search.png)
 
 
