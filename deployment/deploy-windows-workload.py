@@ -22,6 +22,7 @@ if check_project == 0:
         time.sleep(.1)
     print("")
     print("")
+    input("")
     # Namespaces are a way to divide cluster resources between multiple tenants (via resource quota).
     print("Creating windows-workload namespace")
     print("executing: oc apply -f 001-windows-workload-namespace.yaml")
@@ -31,6 +32,7 @@ if check_project == 0:
         time.sleep(.1)
     print("")
     print("")
+    input("")
     # An abstract way to expose an application running on a set of Pods as a network service.
     print("Creating a new service named win-webserver")
     print("executing: oc apply -f 002-windows-service.yaml")
@@ -40,6 +42,7 @@ if check_project == 0:
         time.sleep(.1)
     print("")
     print("")
+    input("")
     # An OpenShift Container Platform route exposes a service at a host name, like www.example.com, 
     # so that external clients can reach it by name.
     print("Exposing the win-webserver service via a route")
@@ -50,6 +53,7 @@ if check_project == 0:
         time.sleep(.1)
     print("")
     print("")
+    input("")
     # A Deployment provides declarative updates for Pods and ReplicaSets.
     print("Deploying windows application")
     print("executing: oc apply -f 004-windows-webserver-deployment.yaml")
@@ -59,6 +63,7 @@ if check_project == 0:
         time.sleep(.1)
     print("")
     print("")
+    input("")
     # Deploying browser to connect to Windows application running on OpenShift
     print("Connecting to windows application running on OpenShift")
     for I in range(57):
