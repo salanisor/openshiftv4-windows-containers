@@ -8,7 +8,7 @@ How to deploy a Windows Server 2019 worker node on OpenShift 4.6.9
 
 #### Windows Machine Set
 
-1) Obtain the infrastructure ID from your OpenShift Cluster to apply to your Windows [machineset](https://github.com/salanisor/openshiftv4-windows-containers/blob/793b54fe278a4e38b8615bad70f24105b9e7609a/deployment/000-windows-server-machineset.yaml#L5-L6) yaml file.
+1) Obtain the infrastructure ID from your OpenShift Cluster to apply to your Windows Server 2019 [machineset](https://github.com/salanisor/openshiftv4-windows-containers/blob/793b54fe278a4e38b8615bad70f24105b9e7609a/deployment/000-windows-server-machineset.yaml#L5-L6) yaml file.
 
 ```
 oc get -o jsonpath='{.status.infrastructureName}{"\n"}' infrastructure cluster
