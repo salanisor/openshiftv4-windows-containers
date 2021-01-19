@@ -1,8 +1,8 @@
-How to deploy a Windows worker node on OpenShift 4.6.9
+How to deploy a Windows Server 2019 worker node on OpenShift 4.6.9
 
 #### Prerequisites
 
-1) OpenShift Cluster 4.6.8 built w/ with Hybrid [OVNKubernetes](https://docs.openshift.com/container-platform/4.6/installing/installing_aws/installing-aws-network-customizations.html#configuring-hybrid-ovnkubernetes_installing-aws-network-customizations) network plugin. 
+1) OpenShift Cluster 4.6.8 configured w/ with HybridOverlay [OVNKubernetes](https://docs.openshift.com/container-platform/4.6/installing/installing_aws/installing-aws-network-customizations.html#configuring-hybrid-ovnkubernetes_installing-aws-network-customizations) network plugin. 
 
 2) [Windows Machine Config Operator](https://docs.openshift.com/container-platform/4.6/windows_containers/enabling-windows-container-workloads.html#installing-wmco-using-web-console_enabling-windows-container-workloads) installed.
 
