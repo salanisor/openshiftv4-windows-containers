@@ -25,12 +25,14 @@ Windows_Server-2019-English-Full-ContainersLatest-
 3) Obtain your cluster's availability zone and region to be applied to your Windows Server 2019 [machineset](https://github.com/salanisor/openshiftv4-windows-containers/blob/793b54fe278a4e38b8615bad70f24105b9e7609a/deployment/000-windows-server-machineset.yaml#L44-L45) yaml file.
 
 4) Create an SSH key to manage your Windows Server 2019 compute nodes, that is seperate from the rest of your OpenShift infrastructure.
-![windows-machine-ssh-key](/images/prez-secret-ssh-key.png)
 
 ```
 oc create secret generic cloud-private-key --from-file=private-key.pem=${HOME}/.ssh/<key> \
     -n openshift-windows-machine-config-operator 
 ```
+
+Example:
+![windows-machine-ssh-key](/images/prez-secret-ssh-key.png)
 
 #### Windows MachineSet
 
@@ -102,6 +104,8 @@ spec:
             name: windows-user-data 
             namespace: openshift-machine-api
 ```
+
+<img src="https://github.com/salanisor/openshiftv4-windows-containers/blob/main/images/taint-toleration.png" height="100" width="500"/>
 
 #### RuntimeClass
 
