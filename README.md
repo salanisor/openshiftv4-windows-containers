@@ -105,6 +105,7 @@ spec:
             namespace: openshift-machine-api
 ```
 
+###### Applied taint & toleration
 <img src="https://github.com/salanisor/openshiftv4-windows-containers/blob/main/images/taint-toleration.png" height="100" width="500"/>
 
 #### RuntimeClass
