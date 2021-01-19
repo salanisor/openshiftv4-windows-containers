@@ -1,4 +1,4 @@
-How to deploy a Windows Server 2019 worker node on OpenShift 4.6.9
+How to deploy a Windows Server 2019 compute node on OpenShift 4.6.9
 
 #### Prerequisites
 
