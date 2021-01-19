@@ -6,7 +6,7 @@ How to deploy a Windows Server 2019 compute node on OpenShift 4.6.9
 
 2) [Windows Machine Config Operator](https://docs.openshift.com/container-platform/4.6/windows_containers/enabling-windows-container-workloads.html#installing-wmco-using-web-console_enabling-windows-container-workloads) installed.
 
-#### Windows Machine Set
+#### Preparation
 
 1) Obtain the infrastructure ID from your OpenShift Cluster to apply to your Windows Server 2019 [machineset](https://github.com/salanisor/openshiftv4-windows-containers/blob/793b54fe278a4e38b8615bad70f24105b9e7609a/deployment/000-windows-server-machineset.yaml#L5-L6) yaml file.
 
@@ -29,6 +29,9 @@ oc get -o jsonpath='{.status.infrastructureName}{"\n"}' infrastructure cluster
 oc create secret generic cloud-private-key --from-file=private-key.pem=${HOME}/.ssh/<key> \
     -n openshift-windows-machine-config-operator 
 ```
+
+#### Windows MachineSet
+
 5) Configure the Windows Server 2019 machineset yaml for your cluster: 
 - A) **Infrastructure ID**
 - B) **Region**
