@@ -1,12 +1,12 @@
 How to deploy a Windows Server 2019 compute node on OpenShift 4.6.9
 
-#### Prerequisites
+## Prerequisites
 
 1) OpenShift Cluster 4.6.8 configured w/ with HybridOverlay [OVNKubernetes](https://docs.openshift.com/container-platform/4.6/installing/installing_aws/installing-aws-network-customizations.html#configuring-hybrid-ovnkubernetes_installing-aws-network-customizations) network plugin. 
 
 2) [Windows Machine Config Operator](https://docs.openshift.com/container-platform/4.6/windows_containers/enabling-windows-container-workloads.html#installing-wmco-using-web-console_enabling-windows-container-workloads) (WMCO) installed.
 
-#### Preparation
+## Preparation
 
 1) Obtain the infrastructure ID from your OpenShift Cluster to apply to your Windows Server 2019 [machineset](https://github.com/salanisor/openshiftv4-windows-containers/blob/793b54fe278a4e38b8615bad70f24105b9e7609a/deployment/000-windows-server-machineset.yaml#L5-L6) yaml file.
 
@@ -34,7 +34,7 @@ oc create secret generic cloud-private-key --from-file=private-key.pem=${HOME}/.
 Example:
 ![windows-machine-ssh-key](/images/prez-secret-ssh-key.png)
 
-#### Windows MachineSet
+## Windows MachineSet
 
 5) Configure the Windows Server 2019 machineset yaml for your cluster: 
 - A) **Infrastructure ID**
@@ -108,7 +108,7 @@ spec:
 ###### Applied taint & toleration
 <img src="https://github.com/salanisor/openshiftv4-windows-containers/blob/main/images/taint-toleration.png" height="100" width="500"/>
 
-#### RuntimeClass
+## RuntimeClass
 
 ```
 apiVersion: node.k8s.io/v1beta1
@@ -128,7 +128,7 @@ scheduling:
     value: "Windows"
 ```
     
-#### Windows Service
+## Windows Service
 
 ```
 apiVersion: v1
@@ -147,7 +147,7 @@ spec:
   type: LoadBalancer
 ```
   
-#### Route exposing the service
+## Route exposing the service
 ```
 apiVersion: v1
 items:
@@ -170,7 +170,7 @@ items:
   status: {}
 ```
 
-#### Windows HTTP Server deployment
+## Windows HTTP Server deployment
 
 ```
 apiVersion: apps/v1
