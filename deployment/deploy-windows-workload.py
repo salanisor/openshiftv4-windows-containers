@@ -71,7 +71,7 @@ if check_project == 0:
         sys.stdout.flush() 
         time.sleep(.1)
     # Launch firefox to connect to running Windows application
-    subprocess.call(['/usr/bin/firefox', 'winhttp.apps.ocp4.freebsd.tv'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    subprocess.call(['/usr/bin/google-chrome', 'winhttp.apps.ocp4.freebsd.tv'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     print("")
     print("")
 else:
