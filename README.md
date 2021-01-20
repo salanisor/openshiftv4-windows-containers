@@ -31,7 +31,7 @@ oc create secret generic cloud-private-key --from-file=private-key.pem=${HOME}/.
     -n openshift-windows-machine-config-operator 
 ```
 
-Example:
+*Example*:
 ![windows-machine-ssh-key](/images/prez-secret-ssh-key.png)
 
 ## Windows MachineSet
